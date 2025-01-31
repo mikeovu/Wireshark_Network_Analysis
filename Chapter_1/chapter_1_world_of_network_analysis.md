@@ -19,7 +19,7 @@ You will see two DNS requests:
 
 Your client makes a TCP connection to www.wireshark.org and then sends an HTTP GET request asking for the default page (GET /)
 
-<img src = "Chapter_1/chapter_1_figure_1.png">
+<img src = "chapter_1_figure_1.png">
 
 You will see the HTTP server respond with a 200 OK response and the page download begins. 
 
@@ -27,7 +27,7 @@ When you click the **Download Wireshark** button, your system sends a request fo
 
 Your system may do a DNS query to find the IP address of the download server before making a new TCP connection to that IP address and finally sending a GET request for the Wireshark file:
 
-<img src = "Chapter_1/chapter_1_figure_2.png">
+<img src = "chapter_1_figure_2.png">
 
 ## Walk-Through of a Troubleshooting Session
 
@@ -54,17 +54,17 @@ We looked at the TCP connection to get a feel for round trip wire latency time -
 
 We then created an IO Graph to see if there were sudden drops in IO rate or if the IO rate was bad all the way through, which is was with an average around 2.5 Mbps.
 
-<img src = "Chapter_1/IO_Graph.png">
+<img src = "IO_Graph.png">
 
 Next we examined the Expert Infos window. Over 12% of the traffic was marked as bad for some reason. Out of the 20,000 packets we captured during the test, there were over 1,000 Retransmissions and Fast Retransmissions. Hundreds of Duplicate ACKs indicate the receiver (the server) noticed much of the packet loss.
 
-<img src = "Chapter_1/expert_info.png">
+<img src = "expert_info.png">
 
 We did not see any `Previous Segment Not Captured` indications in the trace file. This indicates that Wireshark saw the original packet and the retransmission. Packet loss had not occurred yet.
 
 When we looked at the retransmissions we noticed that Mike's machine was resending every packet from the lost packet forward - Not an expected recovery if the hosts were using `Selective Acknowledgements (SACK)`
 
-<img src = "Chapter_1/SACK.png">
+<img src = "SACK.png">
 
 Mike's machine indicated it supported this feature, but the server did not. Significant packet loss will have a severe impact on performance without SACK in place.
 
@@ -190,7 +190,7 @@ However, encryption solutions will not protected the general network traffic tha
 - Save subsets of the captured traffic into separate files.
 - Build graphs depicting overall traffic patterns or apply filters to graphs to focus on particular traffic types.
 
-<img src = "Chapter_1/wireshark_export.png">
+<img src = "wireshark_export.png">
 
 ## Review a Checklist of Analysis Tasks
 
@@ -233,7 +233,7 @@ These techniques are employed after a complaint about network performance has be
 
 ### Switching Overview
 
-<img src="Chapter_1/switch_mechanism.png">
+<img src="switch_mechanism.png">
 
 Switches forward packets based on the destination MAC address contained in the MAC header. Switches do not change the MAC or IP addresses in packets.
 
@@ -264,7 +264,7 @@ If the checksum is valid, the router strips off the MAC header and examines the 
 
 - If the packet is not too old, the router consults its routing tables to determine if the destination IP network is known. If the router is directly connected to the target network, it can send the packet to the target. The router decrements the IP header Time to Live value and then creates and applies a new MAC header to the packet before forwarding it.
 
-<img src = "Chapter_1/routing_mechanism.png">
+<img src = "routing_mechanism.png">
 
 ### Proxy, Firewall and NAT/PAT Overview
 
@@ -278,7 +278,7 @@ Port Address Translation (PAT) systems also alter the port information and use t
 
 Proxy servers - the client connects to the proxy server and the proxy server makes a separate connection to the target. 
 
-<img src = "Chapter_1/firewall.png">
+<img src = "firewall.png">
 
 ### Other Technologies that Affect Packets
 
@@ -309,7 +309,7 @@ Select `Capture | Stop` on the Main Menu or click the `Stop Capture` button on t
 You should see a DNS query. If your system supports both IPv4 and IPv5 you may see two DNS queries: one for the IPv4 address (A record) of wwww.chappelU.com and one for the IPv6 address (AAAA record) of www.chappelU.com
 
 
-<img src = "Chapter_1/capture_lab">
+<img src = "capture_lab.png">
 
 
 ### Step 6 Save the Capture
