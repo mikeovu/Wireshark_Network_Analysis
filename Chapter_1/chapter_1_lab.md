@@ -53,7 +53,7 @@ Network analysis offers an insight into network communications to identify perfo
 2. Measure high delays along a path
 3. Locate the point of packet loss
 
-### Why is network analysis considered a security risk by some companies?
+### Q1.3 Why is network analysis considered a security risk by some companies?
 
 Some companies consider network analysis to be a security risk because it involves tapping into network traffic and eavesdropping on communications. These companies fear that unencrypted information (data, email, etc.) may be seen by the network analyst. In reality, however, the network analyst can identify unsecure network communications to prevent unauthorized eavesdroppers from gaining insight into confidential communications.
 
